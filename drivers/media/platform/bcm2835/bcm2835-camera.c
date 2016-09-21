@@ -696,6 +696,7 @@ static long xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsig
 
          default:
                  return -ENOTTY;
+         }
 }
 
 static int set_overlay_params(struct bm2835_mmal_dev *dev,
