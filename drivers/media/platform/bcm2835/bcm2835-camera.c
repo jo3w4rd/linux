@@ -53,6 +53,18 @@ MODULE_AUTHOR("Vincent Sanders");
 MODULE_LICENSE("GPL");
 MODULE_VERSION(BM2835_MMAL_VERSION);
 
+struct uvc_xu_control_query {
+	__u8 unit;
+	__u8 selector;
+	__u8 query;		/* Video Class-Specific Request Code, */
+				/* defined in linux/usb/video.h A.8.  */
+	__u16 size;
+	__u8 __user *data;
+};
+
+#define UVCIOC_CTRL_MAP		_IOWR('u', 0x20, struct uvc_xu_control_mapping)
+#define UVCIOC_CTRL_QUERY	_IOWR('u', 0x21, struct uvc_xu_control_query)
+
 int bcm2835_v4l2_debug;
 module_param_named(debug, bcm2835_v4l2_debug, int, 0644);
 MODULE_PARM_DESC(bcm2835_v4l2_debug, "Debug level 0-2");
