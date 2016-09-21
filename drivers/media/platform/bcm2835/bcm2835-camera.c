@@ -679,6 +679,7 @@ static long xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsig
          case UVCIOC_CTRL_QUERY:
                  return handle_xu_operation(fh, valid_prio, arg);
 
+         // Not supported
          case UVCIOC_CTRL_MAP:
                  return -ENOTTY;
 
