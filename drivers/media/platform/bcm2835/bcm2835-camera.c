@@ -27,7 +27,7 @@
 #include <media/v4l2-common.h>
 #include <linux/delay.h>
 
-#include <linux/uvcvideo.h>
+#include "uvcvideo.h"
 
 #include "mmal-common.h"
 #include "mmal-encodings.h"
