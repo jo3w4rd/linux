@@ -55,16 +55,16 @@ struct uvc_xu_control_mapping {
 	__u32 reserved[4];
 };
 
-struct uvc_xu_control_query {
-	__u8 unit;
-	__u8 selector;
-	__u8 query;		/* Video Class-Specific Request Code, */
-				/* defined in linux/usb/video.h A.8.  */
-	__u16 size;
-	__u8 __user *data;
-};
-
-#define UVCIOC_CTRL_MAP		_IOWR('u', 0x20, struct uvc_xu_control_mapping)
-#define UVCIOC_CTRL_QUERY	_IOWR('u', 0x21, struct uvc_xu_control_query)
+//struct uvc_xu_control_query {
+//	__u8 unit;
+//	__u8 selector;
+//	__u8 query;		/* Video Class-Specific Request Code, */
+//				/* defined in linux/usb/video.h A.8.  */
+//	__u16 size;
+//	__u8 __user *data;
+//};
+//
+//#define UVCIOC_CTRL_MAP		_IOWR('u', 0x20, struct uvc_xu_control_mapping)
+//#define UVCIOC_CTRL_QUERY	_IOWR('u', 0x21, struct uvc_xu_control_query)
 
 #endif
