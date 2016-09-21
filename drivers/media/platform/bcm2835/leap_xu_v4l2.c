@@ -5,7 +5,7 @@
  * V4L2 driver Leap Motion extension unit code
  */
 #include "uvcvideo.h"
-#include "leap_xu_v4l2.h"
+//#include "leap_xu_v4l2.h"
 
 static long handle_xu_operation(void *fh, bool valid_prio, struct uvc_xu_control_query *xqry){
    return 0;
