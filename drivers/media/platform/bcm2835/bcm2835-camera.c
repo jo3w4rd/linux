@@ -33,6 +33,7 @@
 #include "mmal-msg.h"
 #include "mmal-parameters.h"
 #include "bcm2835-camera.h"
+#include "leap_xu_v4l2.h" //Leap Motion v4l2 XU
 
 #define BM2835_MMAL_VERSION "0.0.2"
 #define BM2835_MMAL_MODULE_NAME "bcm2835-v4l2"
@@ -1445,6 +1446,7 @@ static const struct v4l2_ioctl_ops camera0_ioctl_ops = {
 	.vidioc_log_status = v4l2_ctrl_log_status,
 	.vidioc_subscribe_event = v4l2_ctrl_subscribe_event,
 	.vidioc_unsubscribe_event = v4l2_event_unsubscribe,
+    .vidioc_default = leap_xu_ioctl_default, //Leap Motion XU ioctl handler
 };
 
 static const struct v4l2_ioctl_ops camera0_ioctl_ops_gstreamer = {
@@ -1486,6 +1488,7 @@ static const struct v4l2_ioctl_ops camera0_ioctl_ops_gstreamer = {
 	.vidioc_log_status = v4l2_ctrl_log_status,
 	.vidioc_subscribe_event = v4l2_ctrl_subscribe_event,
 	.vidioc_unsubscribe_event = v4l2_event_unsubscribe,
+    .vidioc_default = leap_xu_ioctl_default, //Leap Motion XU ioctl handler
 };
 
 /* ------------------------------------------------------------------
