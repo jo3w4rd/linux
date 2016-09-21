@@ -667,6 +667,11 @@ static struct vb2_ops bm2835_mmal_video_qops = {
 	IOCTL operations
    ------------------------------------------------------------------*/
 
+static long handle_xu_operation(void *fh, bool valid_prio, void *arg){
+   uvc_xu_control_query control_query = (uvc_xu_control_query *) arg;
+   return 0;
+}
+
 static long xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsigned int cmd, void *arg) {
  
          switch (cmd) {
@@ -679,11 +684,6 @@ static long xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsig
 
          default:
                  return -ENOTTY;
-}
-
-static long handle_xu_operation(void *fh, bool valid_prio, void *arg){
-   uvc_xu_control_query control_query = (uvc_xu_control_query *) arg;
-   return 0;
 }
 
 static int set_overlay_params(struct bm2835_mmal_dev *dev,
