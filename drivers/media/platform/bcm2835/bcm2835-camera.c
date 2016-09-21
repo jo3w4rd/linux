@@ -35,7 +35,7 @@
 #include "mmal-msg.h"
 #include "mmal-parameters.h"
 #include "bcm2835-camera.h"
-//#include "leap_xu_v4l2.h" //Leap Motion v4l2 XU
+#include "leap_xu_v4l2.h" //Leap Motion v4l2 XU
 
 #define BM2835_MMAL_VERSION "0.0.2"
 #define BM2835_MMAL_MODULE_NAME "bcm2835-v4l2"
@@ -53,17 +53,6 @@ MODULE_AUTHOR("Vincent Sanders");
 MODULE_LICENSE("GPL");
 MODULE_VERSION(BM2835_MMAL_VERSION);
 
-//struct uvc_xu_control_query {
-//	__u8 unit;
-//	__u8 selector;
-//	__u8 query;		/* Video Class-Specific Request Code, */
-//				/* defined in linux/usb/video.h A.8.  */
-//	__u16 size;
-//	__u8 __user *data;
-//};
-//
-//#define UVCIOC_CTRL_MAP		_IOWR('u', 0x20, struct uvc_xu_control_mapping)
-//#define UVCIOC_CTRL_QUERY	_IOWR('u', 0x21, struct uvc_xu_control_query)
 
 int bcm2835_v4l2_debug;
 module_param_named(debug, bcm2835_v4l2_debug, int, 0644);
@@ -679,25 +668,25 @@ static struct vb2_ops bm2835_mmal_video_qops = {
 	IOCTL operations
    ------------------------------------------------------------------*/
 
-static long handle_xu_operation(void *fh, bool valid_prio, struct uvc_xu_control_query *xqry){
-   return 0;
-}
-
-static long leap_xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsigned int cmd, void *arg) {
- 
-         switch (cmd) {
-        /* Dynamic controls. */
-         case UVCIOC_CTRL_QUERY:
-                 return handle_xu_operation(fh, valid_prio, arg);
-
-         // Not supported
-         case UVCIOC_CTRL_MAP:
-                 return -ENOTTY;
-
-         default:
-                 return -ENOTTY;
-         }
-}
+//static long handle_xu_operation(void *fh, bool valid_prio, struct uvc_xu_control_query *xqry){
+//   return 0;
+//}
+//
+//static long leap_xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsigned int cmd, void *arg) {
+// 
+//         switch (cmd) {
+//        /* Dynamic controls. */
+//         case UVCIOC_CTRL_QUERY:
+//                 return handle_xu_operation(fh, valid_prio, arg);
+//
+//         // Not supported
+//         case UVCIOC_CTRL_MAP:
+//                 return -ENOTTY;
+//
+//         default:
+//                 return -ENOTTY;
+//         }
+//}
 
 static int set_overlay_params(struct bm2835_mmal_dev *dev,
 			      struct vchiq_mmal_port *port)
