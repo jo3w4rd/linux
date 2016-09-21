@@ -683,7 +683,7 @@ static long handle_xu_operation(void *fh, bool valid_prio, struct uvc_xu_control
    return 0;
 }
 
-static long xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsigned int cmd, void *arg) {
+static long leap_xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsigned int cmd, void *arg) {
  
          switch (cmd) {
         /* Dynamic controls. */
