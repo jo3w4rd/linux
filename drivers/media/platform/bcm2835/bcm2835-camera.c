@@ -679,7 +679,7 @@ static struct vb2_ops bm2835_mmal_video_qops = {
 	IOCTL operations
    ------------------------------------------------------------------*/
 
-static long handle_xu_operation(void *fh, bool valid_prio, uvc_xu_control_query *xqry){
+static long handle_xu_operation(void *fh, bool valid_prio, struct uvc_xu_control_query *xqry){
    return 0;
 }
 
