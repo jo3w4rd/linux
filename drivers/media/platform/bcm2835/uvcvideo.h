@@ -1,5 +1,5 @@
-#ifndef __LINUX_UVCVIDEO_H_
-#define __LINUX_UVCVIDEO_H_
+#ifndef __LINUX_UVCVIDEO2_H_
+#define __LINUX_UVCVIDEO2_H_
 
 #include <linux/ioctl.h>
 #include <linux/types.h>
