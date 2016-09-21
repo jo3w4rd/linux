@@ -4,7 +4,7 @@
  *
  * V4L2 driver Leap Motion extension unit code
  */
-include <linux/uvcvideo.h>
+#include <linux/uvcvideo.h>
 
 long xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsigned int cmd, void *arg) {
  

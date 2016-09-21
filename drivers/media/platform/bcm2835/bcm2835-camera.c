@@ -27,13 +27,15 @@
 #include <media/v4l2-common.h>
 #include <linux/delay.h>
 
+#include <linux/uvcvideo.h>
+
 #include "mmal-common.h"
 #include "mmal-encodings.h"
 #include "mmal-vchiq.h"
 #include "mmal-msg.h"
 #include "mmal-parameters.h"
 #include "bcm2835-camera.h"
-#include "leap_xu_v4l2.h" //Leap Motion v4l2 XU
+//#include "leap_xu_v4l2.h" //Leap Motion v4l2 XU
 
 #define BM2835_MMAL_VERSION "0.0.2"
 #define BM2835_MMAL_MODULE_NAME "bcm2835-v4l2"
@@ -664,6 +666,25 @@ static struct vb2_ops bm2835_mmal_video_qops = {
 /* ------------------------------------------------------------------
 	IOCTL operations
    ------------------------------------------------------------------*/
+
+static long xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsigned int cmd, void *arg) {
+ 
+         switch (cmd) {
+        /* Dynamic controls. */
+         case UVCIOC_CTRL_QUERY:
+                 return handle_xu_operation(fh, valid_prio, arg);
+
+         case UVCIOC_CTRL_MAP:
+                 return -ENOTTY;
+
+         default:
+                 return -ENOTTY;
+}
+
+static long handle_xu_operation(void *fh, bool valid_prio, void *arg){
+   uvc_xu_control_query control_query = (uvc_xu_control_query *) arg;
+   return 0;
+}
 
 static int set_overlay_params(struct bm2835_mmal_dev *dev,
 			      struct vchiq_mmal_port *port)
