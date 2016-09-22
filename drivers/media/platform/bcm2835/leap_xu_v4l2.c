@@ -23,6 +23,6 @@ long leap_xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsigne
                  return -ENOTTY;
 
          default:
-                 return -ENOTTY;
+                 return 12; //-ENOTTY;
          }
 }
