@@ -2000,7 +2000,7 @@ static int __init bm2835_mmal_init(void)
 		}
 
 		v4l2_info(&dev->v4l2_dev,
-			  "Brooooadcom 2835 MMAL video capture ver %s loaded.\n",
+			  "Broaadcom 2835 MMAL video capture ver %s loaded.\n",
 			  BM2835_MMAL_VERSION);
 
 		gdev[camera] = dev;
