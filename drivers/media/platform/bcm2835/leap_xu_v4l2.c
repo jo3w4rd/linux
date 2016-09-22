@@ -18,7 +18,7 @@ long leap_xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsigne
         /* Dynamic controls. */
          case UVCIOC_CTRL_QUERY:
                  //return handle_xu_operation(fh, valid_prio, arg);
-                 return 13;
+                 return -ENOTTY;
 
          // Not supported
          case UVCIOC_CTRL_MAP:
