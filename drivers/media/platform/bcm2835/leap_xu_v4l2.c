@@ -13,16 +13,18 @@ static long handle_xu_operation(void *fh, bool valid_prio, struct uvc_xu_control
 
 long leap_xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsigned int cmd, void *arg) {
          printk(KERN_ALERT "xu ioctl was indeed called\n");
+
          switch (cmd) {
         /* Dynamic controls. */
          case UVCIOC_CTRL_QUERY:
-                 return handle_xu_operation(fh, valid_prio, arg);
+                 //return handle_xu_operation(fh, valid_prio, arg);
+                 return 13;
 
          // Not supported
          case UVCIOC_CTRL_MAP:
                  return -ENOTTY;
 
          default:
-                 return 12; //-ENOTTY;
+                 return -ENOTTY;
          }
 }
