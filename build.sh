@@ -1,4 +1,4 @@
-KERNEL=kernel
+KERNEL=kernel7
 make bcmrpi_defconfig
 make -j4 zImage modules dtbs
 sudo make modules_install
