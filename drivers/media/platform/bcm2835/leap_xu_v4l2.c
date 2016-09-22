@@ -8,7 +8,7 @@
 #include "leap_xu_v4l2.h"
 
 static long handle_xu_operation(void *fh, bool valid_prio, struct uvc_xu_control_query *xqry){
-   return 0;
+   return 3;
 }
 
 long leap_xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsigned int cmd, void *arg) {
@@ -17,8 +17,7 @@ long leap_xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsigne
          switch (cmd) {
         /* Dynamic controls. */
          case UVCIOC_CTRL_QUERY:
-                 //return handle_xu_operation(fh, valid_prio, arg);
-                 return -ENOTTY;
+                 return handle_xu_operation(fh, valid_prio, arg);
 
          // Not supported
          case UVCIOC_CTRL_MAP:
