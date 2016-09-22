@@ -12,7 +12,7 @@ static long handle_xu_operation(void *fh, bool valid_prio, struct uvc_xu_control
 }
 
 long leap_xu_ioctl_default(struct file *file, void *fh, bool valid_prio, unsigned int cmd, void *arg) {
- 
+         printk(KERN_ALERT "xu ioctl was indeed called\n");
          switch (cmd) {
         /* Dynamic controls. */
          case UVCIOC_CTRL_QUERY:

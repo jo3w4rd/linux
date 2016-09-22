@@ -1826,6 +1826,7 @@ unreg_mmal:
 static int __init bm2835_mmal_init_device(struct bm2835_mmal_dev *dev,
 					  struct video_device *vfd)
 {
+    printk(KERN_ALERT "initializing video driver.\n");
 	int ret;
 
 	*vfd = vdev_template;
